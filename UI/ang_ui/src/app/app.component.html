@@ -6,3 +6,48 @@
   <span>{{item.SubjectName}}</span>
   <span>{{item.TeacherName}}</span>
 </div>
+
+<dx-button
+    text="Click me"
+    (onClick)="helloWorld()">
+</dx-button>
+
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="lesson"
+  keyExpr="IdSchedule"
+  [columns]="['WeekdayName', 'numTimeLesson', 'SubjectName', 'FormatName', 'TeacherName','numCourse']"
+  [showBorders]="true"
+>
+</dx-data-grid>
+
+
+<dx-data-grid id="gridContainer" [dataSource]="lesson" [showBorders]="true">
+  <dxi-column
+    dataField="WeekdayName"
+    caption="день недели"
+  ></dxi-column>
+  <dxi-column
+  dataField="numTimeLesson"
+  caption="№"
+  dataType="number"
+></dxi-column>
+  <dxi-column
+    dataField="numCourse"
+    caption="курс"
+    dataType="number"
+  ></dxi-column>
+
+  <dxi-column
+    dataField="SubjectName"
+    caption="Дисциплина"
+  ></dxi-column>
+
+  <dxo-paging [pageSize]="5"></dxo-paging>
+  <dxo-pager
+    [showPageSizeSelector]="true"
+    [allowedPageSizes]="[2, 5, 10]"
+  ></dxo-pager>
+
+</dx-data-grid>
+
